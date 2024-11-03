@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Recipe Collection 🌿</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">𝑾𝒆𝒍𝒍𝒏𝒆𝒔𝒔 𝑹𝒆𝒄𝒊𝒑𝒆𝒔 🌿🍹</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#home">🏠 Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#recipes">🍽️ Recipes</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">ℹ️ About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">✉️ Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="#nutrition-tips">🥗 Nutrition Tips</a></li>
+                <li class="nav-item"><a class="nav-link" href="#user-accounts" onclick="showUserAccountForm()">👤 User Accounts</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <header id="home" class="hero text-center py-8">
+        <h1>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓦𝓮𝓵𝓵𝓷𝓮𝓼𝓼 𝓡𝓮𝓬𝓲𝓹𝓮 𝓒𝓸𝓵𝓵𝓮𝓬𝓽𝓲𝓸𝓷 🌿🍹</h1>
+        <p>🌱 𝕐𝕠𝕦𝕣 𝕛𝕠𝕦𝕣𝕟𝕖𝕪 𝕥𝕠 𝕙𝕖𝕒𝕝𝕥𝕙𝕪 𝕝𝕚𝕧𝕚𝕟𝕘 𝕤𝕥𝕒𝕣𝕥𝕤 𝕙𝕖𝕣𝕖 🌱</p>
+    </header>
+    <!-- Corrected and synchronized section --> 
+    <!-- Recipe Section -->
+<section id="recipes" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">🍽️ Our Healthy Recipes</h2>
+        <div class="mb-4">
+            <input type="text" id="searchBar" class="form-control mb-3" placeholder="🔍 Search for recipes...">
+            <div class="btn-group d-flex flex-wrap justify-content-center" role="group">
+                <button type="button" class="btn btn-secondary" onclick="filterRecipes('all')">🍽️ All</button>
+                <button type="button" class="btn btn-secondary" onclick="filterRecipes('breakfast')">🍳 Breakfast</button>
+                <button type="button" class="btn btn-secondary" onclick="filterRecipes('lunch')">🥗 Lunch</button>
+                <button type="button" class="btn btn-secondary" onclick="filterRecipes('dinner')">🍝 Dinner</button>
+                <button type="button" class="btn btn-secondary" onclick="filterRecipes('snacks')">🍿 Snacks</button>
+                <button type="button" class="btn btn-secondary" onclick="filterRecipes('desserts')">🍰 Desserts</button>
+            </div>
+        </div>
+        <div class="row" id="recipe-cards">
+            <!-- Recipe cards will be dynamically inserted here -->
+        </div>
+        <div class="text-center mt-4">
+            <button id="loadMoreBtn" class="btn btn-primary btn-lg" onclick="loadMoreRecipes()">
+                More Recipes 🔍 📚
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Modal for Recipe Details -->
+<div class="modal fade" id="recipeModal" tabindex="-1" role="dialog" aria-labelledby="recipeModalLabel" aria-hidden="true">
+    <!-- Modal content will be dynamically inserted here -->
+</div>
+
+<!-- Wellness Blog Section -->
+<section id="wellness-blog" class="text-center py-4" style="background-color: #f9f9f9;">
+    <div class="container">
+        <h2 class="display-4 text-success mb-2">Wellness Blog 📚</h2>
+        <p class="lead">Stay updated with our latest wellness articles and tips.</p>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061" class="card-img-top" alt="Healthy Meal Planning">
+                    <div class="card-body">
+                        <h5 class="card-title">🗓️ Meal Planning for Success</h5>
+                        <p class="card-text">Learn how to plan your weekly meals for maximum nutrition and minimal waste.</p>
+                        <a href="#" class="btn btn-success" onclick="toggleMealPlanningBlog()">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-content" id="mealPlanningBlog" style="display: none;">
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <h4>Complete Guide to Effective Meal Planning</h4>
+                            <p>Meal planning is a game-changer for maintaining a healthy lifestyle and reducing food waste. Here's your comprehensive guide:</p>
+                            
+                            <h5>📋 Weekly Planning Process</h5>
+                            <ul>
+                                <li>Take inventory of pantry and refrigerator items</li>
+                                <li>Check local store flyers for sales and seasonal items</li>
+                                <li>Plan 5-7 days of meals considering your schedule</li>
+                                <li>Make a detailed shopping list by category</li>
+                                <li>Schedule a specific day for grocery shopping</li>
+                            </ul>
+
+                            <h5>🔪 Prep Strategies</h5>
+                            <ul>
+                                <li>Dedicate 2-3 hours on weekends for meal prep</li>
+                                <li>Wash and chop vegetables in advance</li>
+                                <li>Prepare proteins in bulk</li>
+                                <li>Cook grains and legumes for multiple meals</li>
+                                <li>Portion snacks into grab-and-go containers</li>
+                            </ul>
+
+                            <h5>💰 Budget-Friendly Tips</h5>
+                            <ul>
+                                <li>Buy in bulk for frequently used items</li>
+                                <li>Choose seasonal produce for better prices</li>
+                                <li>Use frozen vegetables when fresh are expensive</li>
+                                <li>Incorporate cheaper protein alternatives</li>
+                                <li>Plan meals that share common ingredients</li>
+                            </ul>
+
+                            <h5>🌱 Sustainability Focus</h5>
+                            <ul>
+                                <li>Use reusable containers for storage</li>
+                                <li>Plan to use perishables first</li>
+                                <li>Create recipes for leftover ingredients</li>
+                                <li>Properly store food to extend freshness</li>
+                                <li>Compost suitable food scraps</li>
+                            </ul>
+
+                            <h5>⏰ Time-Saving Techniques</h5>
+                            <ul>
+                                <li>Use slow cooker or instant pot for hands-off cooking</li>
+                                <li>Double recipes and freeze portions</li>
+                                <li>Keep a collection of 30-minute meals</li>
+                                <li>Prep ingredients the night before</li>
+                                <li>Create a rotating meal schedule</li>
+                            </ul>
+
+                            <button class="btn btn-secondary mt-3" onclick="toggleMealPlanningBlog()">Close Article</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773" class="card-img-top" alt="Seasonal Ingredients">
+                    <div class="card-body">
+                        <h5 class="card-title">🌱 Cooking with Seasonal Ingredients</h5>
+                        <p class="card-text">Discover the benefits of using seasonal produce in your recipes.</p>
+                        <a href="#" class="btn btn-success">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f" class="card-img-top" alt="Food Storage Tips">
+                    <div class="card-body">
+                        <h5 class="card-title">🥬 Food Storage & Preservation</h5>
+                        <p class="card-text">Tips and tricks for keeping your ingredients fresh longer.</p>
+                        <a href="#" class="btn btn-success">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-outline-success mt-4">View All Articles ➜</button>
+    </div>
+</section>
+
+<!-- Cooking Tips Section -->
+<section id="cooking-tips" class="text-center py-5" style="background-color: #e9f5e9;">
+    <div class="container">
+        <h2 class="display-4 mb-4">Cooking Tips 🍳</h2>
+        <p class="lead mb-5">Enhance your cooking skills with our expert tips and techniques.</p>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-temperature-high text-success fa-3x mb-3"></i>
+                        <h4 class="card-title">Temperature Control</h4>
+                        <p class="card-text">Learn proper heat levels for different cooking methods and ingredients. Master the art of temperature control for perfect results every time.</p>
+                        <button class="btn btn-outline-success mt-3" data-toggle="tooltip" title="Click for detailed guide">Learn More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-utensils text-success fa-3x mb-3"></i>
+                        <h4 class="card-title">Knife Skills</h4>
+                        <p class="card-text">Discover essential cutting techniques, knife maintenance, and safety tips. Proper knife skills are fundamental to efficient cooking.</p>
+                        <button class="btn btn-outline-success mt-3" data-toggle="tooltip" title="Click for detailed guide">Learn More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-clock text-success fa-3x mb-3"></i>
+                        <h4 class="card-title">Timing & Prep</h4>
+                        <p class="card-text">Master meal timing and prep organization. Learn to coordinate multiple dishes and keep everything hot and fresh for serving.</p>
+                        <button class="btn btn-outline-success mt-3" data-toggle="tooltip" title="Click for detailed guide">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Ingredient Guides Section -->
+<section id="ingredient-guides" class="text-center py-5" style="background-color: #f9f9f9;">
+    <div class="container">
+        <h2 class="display-4 mb-4">Ingredient Guides 🥦</h2>
+        <p class="lead mb-5">Learn about different ingredients and how to use them in your healthy recipes.</p>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-seedling text-success fa-3x mb-3"></i>
+                        <h4 class="card-title">Fresh Produce</h4>
+                        <p class="card-text">Learn how to select, store and prepare fresh fruits and vegetables for maximum nutrition and flavor.</p>
+                        <button class="btn btn-outline-success mt-3" data-toggle="tooltip" title="View produce guide">Read Guide</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-wheat-awn text-success fa-3x mb-3"></i>
+                        <h4 class="card-title">Whole Grains</h4>
+                        <p class="card-text">Discover the benefits of whole grains and learn cooking techniques for quinoa, brown rice, oats and more.</p>
+                        <button class="btn btn-outline-success mt-3" data-toggle="tooltip" title="View grains guide">Read Guide</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-leaf text-success fa-3x mb-3"></i>
+                        <h4 class="card-title">Herbs & Spices</h4>
+                        <p class="card-text">Master the art of seasoning with our comprehensive guide to cooking with fresh and dried herbs and spices.</p>
+                        <button class="btn btn-outline-success mt-3" data-toggle="tooltip" title="View seasonings guide">Read Guide</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section id="about" class="text-center py-5" style="background-color: #f9f9f9;">
+    <div class="container">
+        <h2 class="display-3 text-success mb-2">About Us 🌱</h2>
+        <p class="lead">Our mission is to promote healthy living through wholesome ingredients and diverse dietary preferences.</p>
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <p class="text-muted">Founded in 2024, Wellness Recipe Collection brings together passionate food lovers, certified nutritionists, and experienced chefs to create a comprehensive resource for healthy cooking and mindful eating.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card border-0 bg-light mb-4">
+                    <div class="card-body">
+                        <i class="fas fa-heart text-success fa-3x mb-3"></i>
+                        <h4>Healthy Living</h4>
+                        <p>We believe in making healthy eating accessible, enjoyable, and sustainable for everyone.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 bg-light mb-4">
+                    <div class="card-body">
+                        <i class="fas fa-users text-success fa-3x mb-3"></i>
+                        <h4>Inclusive Community</h4>
+                        <p>Our recipes cater to various dietary needs including vegetarian, vegan, gluten-free, and more.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 bg-light mb-4">
+                    <div class="card-body">
+                        <i class="fas fa-book-open text-success fa-3x mb-3"></i>
+                        <h4>Expert Knowledge</h4>
+                        <p>Each recipe is carefully crafted and reviewed by our team of nutrition experts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-success mb-4">Our Values & Mission</h2>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card shadow-sm mb-4">
+                            <div class="card-body">
+                                <h3 class="card-title text-primary">Core Values</h3>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">🌿 <strong>Quality:</strong> We source and promote premium, wholesome ingredients</li>
+                                    <li class="list-group-item">🌍 <strong>Sustainability:</strong> Committed to eco-friendly cooking practices</li>
+                                    <li class="list-group-item">🤝 <strong>Community:</strong> Building connections through healthy food choices</li>
+                                    <li class="list-group-item">📚 <strong>Education:</strong> Empowering through nutritional knowledge</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card shadow-sm mb-4">
+                            <div class="card-body">
+                                <h3 class="card-title text-primary">Our Impact</h3>
+                                <div class="row text-center">
+                                    <div class="col-6 mb-3">
+                                        <h4 class="text-success">10,000+</h4>
+                                        <p class="text-muted">Active Members</p>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <h4 class="text-success">500+</h4>
+                                        <p class="text-muted">Healthy Recipes</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <h4 class="text-success">50+</h4>
+                                        <p class="text-muted">Expert Contributors</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <h4 class="text-success">20+</h4>
+                                        <p class="text-muted">Countries Reached</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success btn-lg mt-3" data-toggle="modal" data-target="#moreInfoModal">
+                    Learn More About Us <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nutrition Tips Section -->
+<section id="nutrition-tips" class="text-center py-5" style="background-color: #e9f5e9;">
+    <div class="container">
+        <h2 class="display-4 mb-5">Nutrition Tips 🍏</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-tint fa-3x text-primary mb-3"></i>
+                        <h3 class="h4">Stay Hydrated 💧</h3>
+                        <p class="text-muted">Aim for 8 glasses of water daily. Set reminders and carry a reusable water bottle.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-rainbow fa-3x text-primary mb-3"></i>
+                        <h3 class="h4">Eat a Rainbow 🌈</h3>
+                        <p class="text-muted">Different colored fruits and vegetables provide various essential nutrients.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-calendar-check fa-3x text-primary mb-3"></i>
+                        <h3 class="h4">Plan Your Meals 🗓️</h3>
+                        <p class="text-muted">Weekly meal planning helps maintain a balanced diet and reduces food waste.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="container-fluid bg-light py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="text-center mb-4 text-success">Contact Us</h2>
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <form id="contactForm" onsubmit="return handleContactSubmit(event)">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       id="name" 
+                                       placeholder="Enter your name"
+                                       required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Your Email</label>
+                                <input type="email" 
+                                       class="form-control" 
+                                       id="email" 
+                                       placeholder="Enter your email"
+                                       required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Your Message</label>
+                                <textarea class="form-control" 
+                                          id="message" 
+                                          rows="5" 
+                                          placeholder="Type your message here..."
+                                          required></textarea>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success px-4 py-2">
+                                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- User Accounts Modal -->
+<div class="modal fade" id="userAccountModal" tabindex="-1" role="dialog" aria-labelledby="userAccountModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="userAccountModalLabel">User Accounts</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs nav-fill mb-3" id="accountTabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab">Sign Up</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="accountTabContent">
+                    <!-- Login Form -->
+                    <div class="tab-pane fade show active" id="login" role="tabpanel">
+                        <form id="loginForm" onsubmit="loginUser(event)" class="needs-validation" novalidate>
+                            <div class="form-group">
+                                <label for="loginEmail">Email address</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control" id="loginEmail" required 
+                                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Password</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" id="loginPassword" required minlength="8">
+                                    <div class="invalid-feedback">Password must be at least 8 characters long.</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="rememberMe">
+                                    <label class="custom-control-label" for="rememberMe">Remember me</label>
+                                </div>
+                            </div>
+                            <div id="loginMessage" class="alert d-none"></div>
+                            <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Sign Up Form -->
+                    <div class="tab-pane fade" id="signup" role="tabpanel">
+                        <form id="signupForm" onsubmit="registerUser(event)" class="needs-validation" novalidate>
+                            <div class="form-group">
+                                <label for="signupEmail">Email address</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control" id="signupEmail" required
+                                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="signupUsername">Username</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="signupUsername" required minlength="3"
+                                           pattern="[A-Za-z0-9_]{3,}" title="Username must be alphanumeric and at least 3 characters">
+                                    <div class="invalid-feedback">Username must be at least 3 characters long and contain only letters, numbers and underscores.</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="signupPassword">Password</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" id="signupPassword" required
+                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                           title="Must contain at least one number, one uppercase and lowercase letter, and be at least 8 characters long">
+                                    <div class="invalid-feedback">Password must contain at least 8 characters, including uppercase, lowercase and numbers.</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" id="confirmPassword" required>
+                                    <div class="invalid-feedback">Passwords do not match.</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="termsAccept" required>
+                                    <label class="custom-control-label" for="termsAccept">I accept the Terms of Service and Privacy Policy</label>
+                                    <div class="invalid-feedback">You must accept the terms to continue.</div>
+                                </div>
+                            </div>
+                            <div id="signupMessage" class="alert d-none"></div>
+                            <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Recipe Engagement Section -->
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <!-- Recipe Stats Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <div class="display-4 text-success mb-3">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h5 class="card-title">Recipe Likes</h5>
+                    <p id="counterDisplay" class="display-4 mb-3 text-success">0</p>
+                    <button id="incrementButton" class="btn btn-outline-success btn-lg" onclick="handleLike(this)" data-liked="false">
+                        <i class="fas fa-heart mr-2"></i>Like Recipe
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Interaction Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <div class="display-4 text-primary mb-3">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h5 class="card-title">Community Feedback</h5>
+                    <p class="text-muted mb-3">Share your thoughts!</p>
+                    <div class="form-group">
+                        <textarea class="form-control mb-2" rows="2" placeholder="Leave a comment..."></textarea>
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Recipe Sharing Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <div class="display-4 text-warning mb-3">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h5 class="card-title">Share Recipe</h5>
+                    <p class="text-muted">Share your favorite healthy recipes with friends!</p>
+                    <div class="d-flex justify-content-center gap-3 mt-4">
+                        <button class="btn btn-outline-primary mx-2 share-btn" data-platform="facebook" disabled>
+                            <i class="fab fa-facebook-f"></i>
+                            <span class="share-count" data-count="0">0</span>
+                        </button>
+                        <button class="btn btn-outline-info mx-2 share-btn" data-platform="twitter" disabled>
+                            <i class="fab fa-twitter"></i>
+                            <span class="share-count" data-count="0">0</span>
+                        </button>
+                        <button class="btn btn-outline-danger mx-2 share-btn" data-platform="pinterest" disabled>
+                            <i class="fab fa-pinterest"></i>
+                            <span class="share-count" data-count="0">0</span>
+                        </button>
+                    </div>
+                    <div class="mt-4">
+                        <div class="alert alert-success share-alert" style="display: none;" role="alert">
+                            Thanks for sharing! Please wait 24 hours before sharing again.
+                        </div>
+                        <div class="alert alert-info share-status" role="alert">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>Shares Available Today:</span>
+                                <span class="badge bg-primary shares-remaining">1</span>
+                            </div>
+                            <div class="progress mt-2" style="height: 5px;">
+                                <div class="progress-bar" role="progressbar" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="user-info">
+                            <small class="text-muted" id="currentUser">Logged in as: Guest</small>
+                            <br>
+                            <small class="text-muted cooldown-timer"></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="scripts.js"></script>
+<script>
+    // Initialize counter
+    let count = 0;
+    const counterDisplay = document.getElementById('counterDisplay');
+    const incrementButton = document.getElementById('incrementButton');
+
+    // Update counter display
+    function updateCounter() {
+        counterDisplay.textContent = `Count is ${count}`;
+    }
+
+    // Add click event listener
+    incrementButton.addEventListener('click', () => {
+        count++;
+        updateCounter();
+    });
+
+    // Function to show user account form
+    function showUserAccountForm() {
+        $('#userAccountModal').modal('show');
+    }
+
+    // Function to filter recipes
+    function filterRecipes(category) {
+        console.log(`Filtering recipes by: ${category}`);
+    }
+
+    // Function to show more info in About section
+    function showMoreInfo() {
+        console.log('Showing more information');
+    }
+
+    // Functions for user registration and login
+    function registerUser() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        console.log('Registering user:', username);
+    }
+
+    function loginUser() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        console.log('Logging in user:', username);
+    }
+</script>
+
+<!-- Footer -->
+<footer class="text-center py-4" style="background-color: #4CAF50; color: white;">
+    <p>&copy; 2024 Wellness Recipe Collection. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

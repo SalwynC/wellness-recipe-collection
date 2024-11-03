@@ -1,0 +1,655 @@
+:root {
+    --primary-color: #4CAF50; /* Main color for buttons and headings */
+    --secondary-color: #2196F3; /* Secondary color for accents */
+    --accent-color: #FF9800; /* Accent color for hover effects */
+    --background-color: #FFFFFF; /* Background color */
+    --text-color: #000; /* Text color */
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Font style */
+    background-color: var(--background-color); /* Background color */
+    color: var(--text-color); /* Text color */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?q=80&w=1000&auto=format&fit=crop');
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the background image */
+    color: white; /* Text color in hero section */
+    padding: 100px 0; /* Padding for hero section */
+    margin-bottom: 2rem; /* Margin below hero section */
+}
+
+.hero h1 {
+    font-size: 3.5em;
+}
+
+.hero p {
+    font-size: 1.5em;
+}
+
+.card {
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: white;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #333;
+}
+
+.card-text {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+section {
+    padding: 60px 0; /* Padding for sections */
+}
+
+h1, h2, h3 {
+    color: var(--primary-color); /* Heading color */
+}
+
+footer {
+    background-color: var(--primary-color); /* Footer background color */
+    color: white; /* Footer text color */
+    padding: 20px 0; /* Padding for footer */
+}
+
+#searchBar {
+    border-radius: 20px; /* Rounded search bar */
+    padding: 10px 20px; /* Padding for search bar */
+}
+
+.btn-group .btn {
+    margin-right: 5px; /* Margin between buttons */
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2em; /* Responsive font size for hero heading */
+    }
+    .hero p {
+        font-size: 1em; /* Responsive font size for hero paragraph */
+    }
+}
+
+footer .iconify {
+    margin-top: 10px; /* Space above the icon */
+    fill: #F7DF1E; /* Change the fill color if needed */
+}
+
+#loadMoreBtn {
+    padding: 10px 30px;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#loadMoreBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    margin: 2rem auto;
+}
+
+/* Animation for new recipes */
+.card {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading spinner styles */
+.loading-spinner {
+    text-align: center;
+    padding: 2rem;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    color: #007bff;
+}
+
+/* Lunch Section Specific Styles */
+.lunch-section {
+    padding: 2rem 0;
+    background-color: #f8f9fa;
+}
+
+.lunch-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.lunch-card {
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.lunch-card:hover {
+    transform: translateY(-5px);
+}
+
+.lunch-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+/* Updated Recipe Modal Styles */
+.modal-header.bg-success {
+    background-color: #28a745 !important;
+}
+
+.recipe-description {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    color: #28a745;
+    font-weight: 600;
+    margin: 20px 0 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.ingredients-list, .instructions-list {
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.ingredients-list li {
+    margin-bottom: 8px;
+    color: #555;
+    list-style-type: circle;
+}
+
+.instructions-list li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    color: #333;
+    padding-left: 10px;
+}
+
+.nutrition-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.nutrition-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.nutrition-item .label {
+    font-weight: 600;
+    color: #28a745;
+    margin-bottom: 5px;
+}
+
+.nutrition-item .value {
+    color: #555;
+}
+
+/* View Recipe Button Styles */
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Modal Animation */
+.modal.fade .modal-dialog {
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1);
+}
+
+/* Global Animations */
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-in;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+}
+
+/* Recipe Categories */
+.category-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    z-index: 1;
+}
+
+.lunch-badge {
+    background-color: #28a745;
+    color: white;
+}
+.snacks-badge {
+    background-color: #28a745;
+    color: white;
+}
+.breakfast-badge {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Button Styles */
+.btn {
+    border-radius: 25px;
+    padding: 8px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary, .btn-success {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Meal Planning Styles */
+#meal-planning-blog {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#meal-planning-blog.show {
+    opacity: 1;
+}
+
+#toggle-blog-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+.card {
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.card-title {
+    color: #28a745;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+ul, ol {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* Contact Form Styles */
+#contact {
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+}
+
+#contact .card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+#contact .card:hover {
+    transform: translateY(-5px);
+}
+
+#contact .form-control {
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+#contact .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    border-color: #28a745;
+}
+
+#contact .form-label {
+    color: #495057;
+    font-weight: 500;
+}
+
+#contact .btn-success {
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#contact .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+}
+
+/* Form validation styles */
+.form-control.is-invalid {
+    border-color: #dc3545;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+.invalid-feedback {
+    display: none;
+    color: #dc3545;
+    font-size: 80%;
+    margin-top: 0.25rem;
+}
+
+/* Image handling styles */
+.card-img-container {
+    position: relative;
+    padding-top: 66.67%; /* 3:2 aspect ratio */
+    overflow: hidden;
+    background-color: #f8f9fa;
+}
+
+.card-img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.recipe-card:hover .card-img-container img {
+    transform: scale(1.05);
+}
+
+.recipe-image-container {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.recipe-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Loading state */
+.image-loading {
+    position: relative;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Recipe Modal Styles */
+.modal-header.bg-success {
+    background-color: #28a745 !important;
+}
+
+.recipe-info .badge {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+}
+
+.nutrition-info {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.ingredients-section,
+.instructions-section {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.list-group-item {
+    border: none;
+    padding: 10px 0;
+}
+
+.list-group-item i {
+    color: #28a745;
+}
+
+/* Print Styles */
+@media print {
+    .modal-header {
+        background-color: #fff !important;
+        color: #000 !important;
+    }
+    
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* Recipe Card Styles */
+.recipe-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-img-container {
+    position: relative;
+    padding-top: 66.67%;
+    overflow: hidden;
+}
+
+.card-img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.recipe-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Modal Styles */
+.modal-content {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.ingredients-section,
+.instructions-section {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.list-group-item {
+    background: transparent;
+    border: none;
+    padding: 0.5rem 0;
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+    }
+    
+    h2 {
+        font-size: 18pt;
+    }
+    
+    h4 {
+        font-size: 14pt;
+    }
+}
