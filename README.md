@@ -1,1 +1,1 @@
-# wellness-recipe-collection
+# Wellness Recipe Hub 
